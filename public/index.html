@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Simplistic Game</title>
+  <script src="js/main.js" charset="utf-8"></script>
+</head>
+
+<body onload="init()">
+  <h2>Population</h2>
+  <div>Free/Total: <span id="population_free"></span>/<span id="population_total"></span>
+  <div>Max: <span id="population_max"></span></div></div>
+  <h2>Structures</h2>
+  <div>Houses (+5): <span id="houses"></span></div><button type="button" onclick="buildHouse()">Build House (cost: <span id="house_cost_0">20</span> food + <span id="house_cost_1">60</span> wood)</button>
+  <h2>Resources</h2>
+  <div>Food: <span id="food"></span></div>
+  <div>Wood: <span id="wood"></span></div>
+  <h2>Workers</h2>
+  <label for="farmers">Farmers (+1): </label><br><input type="number" id="farmers" name="farmers" min="0" max="0" value="0" onchange="adjustWorkers()"><br>
+  <label for="woodcutters">Woodcutters (+0.5): </label><br><input type="number" id="woodcutters" name="woodcutters" min="0" max="0" value="0" onchange="adjustWorkers()">
+  <h2>Game Cycle</h2>
+  <button type="button" name="button" onclick="tick()">Tick</button><br>
+  <button type="button" name="button" onclick="tick10()">Tick x10</button><br>
+  <h4>Debug Log</h4>
+  <textarea id="dlog" rows="6" cols="30"></textarea>
+</body>
+
+</html>
