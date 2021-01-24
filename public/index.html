@@ -4,42 +4,71 @@
 <head>
   <meta charset="utf-8">
   <title>Simplistic Game</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="js/main.js" charset="utf-8"></script>
 </head>
 
 <body onload="init()">
-  <h2>Instructions</h2>
-  <div>
-    <p><i>Version 0.1</i></p>
-    <p><b>PT</b>: Este é um jogo de estratégia <i>slow-paced</i> cujo progresso é baseado em <i>ticks</i>. Um <i>tick</i> representa um dia, no contexto do jogo.</p>
-    <p>
-      O jogador atribui tarefas aos habitantes: cada <i>farmer</i> produz 0.5 unidades de alimento por dia; cada <i>woodcutter</i> produz 1 unidade de lenha. <br>
-      Depois de distribuir a população, avança-se um (ou 10!) dias, cliclando no botão <b>| Tick |</b>, e os recursos serão atualizados. <br>
-      <i>Cada habitante custa 0.2 unidades de alimento por dia.</i><br>
-    </p>
-    <p>
-      Uma vez reunidos recursos suficientes, o jogador pode construir mais casas para aumentar a capacidade populacional. <br>
-      Cada casa adiciona 5 ao máximo de população.
-      Havendo espaço suficiente, com o passar dos dias a população começará a crescer. <br>
-      <i>Cada casal tem 5% de probabilidade de criar um filho durante a noite.</i>
-    </p>
-  </div>
-  <h2>Population</h2>
-  <div>Free/Total: <span id="population_free"></span>/<span id="population_total"></span>
-  <div>Max: <span id="population_max"></span></div></div>
-  <h2>Structures</h2>
-  <div>Houses (+5): <span id="houses"></span></div><button type="button" onclick="buildHouse()">Build House (cost: <span id="house_cost_0">20</span> food + <span id="house_cost_1">60</span> wood)</button>
-  <h2>Resources</h2>
-  <div>Food: <span id="food"></span></div>
-  <div>Wood: <span id="wood"></span></div>
-  <h2>Workers</h2>
-  <label for="farmers">Farmers (+1): </label><br><input type="number" id="farmers" name="farmers" min="0" max="0" value="0" onchange="adjustWorkers()"><br>
-  <label for="woodcutters">Woodcutters (+0.5): </label><br><input type="number" id="woodcutters" name="woodcutters" min="0" max="0" value="0" onchange="adjustWorkers()">
-  <h2>Progress</h2>
-  <button type="button" name="button" onclick="tick()">Tick</button><br>
-  <button type="button" name="button" onclick="tick10()">Tick x10</button><br>
-  <h4>Log</h4>
-  <textarea id="dlog" rows="6" cols="30"></textarea>
+   <div class="row">
+      <div class="col-5">
+         <div class="container">
+            <h2>Population</h2>
+            <p>Free / Total: <span id="population_total"></span> / <span id="population_free"></span></p>
+            <p>Max: <span id="population_max"></span></p>
+         </div>
+         <div class="container">
+            <h2>Structures</h2>
+            <p>Houses (+5): <span id="houses"></span></p>
+            <p>
+               <button type="button" onclick="buildHouse()">Build House (Costs <span id="house_cost_0">20</span> Food + <span id="house_cost_1">60</span> Wood)</button>
+            </p>
+         </div>
+         <div class="container">
+            <h2>Resources</h2>
+            <p>Food: <span id="food"></span></p>
+            <p>Wood: <span id="wood"></span></p>
+         </div>
+         <div class="container">
+            <h2>Workers</h2>
+            <p>
+               <label for="farmers">Farmers (+1): </label><br>
+               <input type="number" id="farmers" name="farmers" min="0" max="0" value="0" onchange="adjustWorkers()">
+            </p>
+            <p>
+               <label for="woodcutters">Woodcutters (+0.5): </label><br>
+               <input type="number" id="woodcutters" name="woodcutters" min="0" max="0" value="0" onchange="adjustWorkers()">
+            </p>
+         </div>
+         <div class="container">
+            <h2>Progress</h2>
+            <p><button type="button" name="button" onclick="tick()">Tick</button></p>
+            <p><button type="button" name="button" onclick="tick10()">Tick x10</button></p>
+         </div>
+      </div>
+      <div class="col-5">
+         <div class="container">
+            <h2>Instructions</h2>
+            <i>Version 0.1 patch 2</i>
+            <p><b>PT</b>: Este é um jogo de estratégia <i>slow-paced</i> cujo progresso é baseado em <i>ticks</i>. Um <i>tick</i> representa um dia, no contexto do jogo.</p>
+            <p>
+               O jogador atribui tarefas aos habitantes: cada <i>farmer</i> produz 0.5 unidades de alimento por dia; cada <i>woodcutter</i> produz 1 unidade de lenha. <br>
+               Depois de distribuir a população, avança-se um dia (ou 10), clicando no botão <b>[ Tick ]</b>, e os recursos serão atualizados. <br>
+               <i>Cada habitante custa 0.2 unidades de alimento por dia.</i>
+            </p>
+            <p>
+               Uma vez reunidos recursos suficientes, o jogador pode construir mais casas para aumentar a capacidade populacional. <br>
+               Cada casa adiciona 5 ao máximo de população.
+               Havendo espaço suficiente, com o passar dos dias a população começará a crescer. <br>
+               <i>Cada casal tem 5% de probabilidade de criar um filho durante a noite.</i>
+            </p>
+         </div>
+         <div class="container">
+            <h2>Log</h2>
+            <textarea id="dlog" rows="6" cols="30"></textarea>
+         </div>
+      </div>
+   </div>
 </body>
 
 </html>
