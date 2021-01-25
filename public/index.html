@@ -14,31 +14,27 @@
       <div class="col-5">
          <div class="container">
             <h2>Population</h2>
-            <p>Free / Total: <span id="population_total"></span> / <span id="population_free"></span></p>
-            <p>Max: <span id="population_max"></span></p>
+            <p><img class="icon" src="img/person.png" height="24">Free / Total: <span id="population_total"></span> / <span id="population_free"></span></p>
+            <p><img class="icon" src="img/housing.png" height="24">Max: <span id="population_max"></span></p>
          </div>
          <div class="container">
             <h2>Structures</h2>
-            <p>Houses (+5): <span id="houses"></span></p>
+            <p><img class="icon" src="img/house.png" height="24">Houses (+5): <span id="houses"></span></p>
             <p>
                <button type="button" onclick="buildHouse()">Build House (Costs <span id="house_cost_0">20</span> Food + <span id="house_cost_1">60</span> Wood)</button>
             </p>
          </div>
          <div class="container">
             <h2>Resources</h2>
-            <p>Food: <span id="food"></span></p>
-            <p>Wood: <span id="wood"></span></p>
+            <p><img class="icon" src="img/food.png" height="24">Food: <span id="food"></span></p>
+            <p><img class="icon" src="img/wood.png" height="24">Wood: <span id="wood"></span></p>
          </div>
          <div class="container">
             <h2>Workers</h2>
-            <p>
-               <label for="farmers">Farmers (+1): </label><br>
-               <input type="number" id="farmers" name="farmers" min="0" max="0" value="0" onchange="adjustWorkers()">
-            </p>
-            <p>
-               <label for="woodcutters">Woodcutters (+0.5): </label><br>
-               <input type="number" id="woodcutters" name="woodcutters" min="0" max="0" value="0" onchange="adjustWorkers()">
-            </p>
+            <p><img class="icon" src="img/farmer.png" height="24"><label for="farmers">Farmers (+1): </label></p>
+            <p><input type="number" id="farmers" name="farmers" min="0" max="0" value="0" onchange="adjustWorkers()"></p>
+            <p><img class="icon" src="img/woodcutter.png" height="24"><label for="woodcutters">Woodcutters (+0.5): </label></p>
+            <p><input type="number" id="woodcutters" name="woodcutters" min="0" max="0" value="0" onchange="adjustWorkers()"></p>
          </div>
          <div class="container">
             <h2>Progress</h2>

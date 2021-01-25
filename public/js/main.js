@@ -5,7 +5,7 @@ day = 1
 population_total = 10
 population_free = 10
 population_max = 10
-feed_per_individual = 0.2
+feed_per_person = 0.2
 childbirth_chance = 5 // in percentage
 
 // Structures
@@ -89,7 +89,7 @@ function tick(preserveLog = false) {
    wood_diff = woodcutters * wood_per_woodcutter
    wood += wood_diff
    dlog("Wood: +" + wood_diff)
-   food_diff = farmers * food_per_farmer - population_total * feed_per_individual
+   food_diff = farmers * food_per_farmer - population_total * feed_per_person
    food += food_diff
    food = Math.round((food + Number.EPSILON) * 100) / 100
    dlog("Food: " + (food_diff<0?"":"+") + food_diff)
