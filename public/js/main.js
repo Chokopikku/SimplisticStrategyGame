@@ -1,11 +1,14 @@
 // Date
-day = 1
+day = 0
 
 // Population
+population_babies = 0
+population_adults = 10
 population_total = 10
 population_free = 10
 population_max = 10
-feed_per_person = 0.2
+hunger = 0.4
+thirst = 0.2
 childbirth_chance = 5 // in percentage
 
 // Structures
@@ -15,13 +18,25 @@ house_cost_increase = [5, 20]
 
 // Resources
 food = 200
+water = 200
 wood = 0
+stone = 0
+ideas = 0
 
 // Jobs
 farmers = 0
 food_per_farmer = 1
 woodcutters = 0
 wood_per_woodcutter = 0.5
+miners = 0
+stone_per_miner = 0.5
+diggers = 0
+res_per_digger = 0.5
+hunters = 0
+food_per_hunter = 0.5
+leather_per_hunter
+thinkers = 0
+ideas_per_thinker = 0.5
 
 function init() {
    updatePopulation()
@@ -42,7 +57,10 @@ function updateStructures() {
 
 function updateResources() {
    document.getElementById('food').innerHTML = food
+   document.getElementById('water').innerHTML = water
    document.getElementById('wood').innerHTML = wood
+   document.getElementById('stone').innerHTML = stone
+   document.getElementById('ideas').innerHTML = ideas
 }
 
 function updateWorkers() {
@@ -88,11 +106,15 @@ function tick(preserveLog = false) {
    dlog("Day " + ++day + ":")
    wood_diff = woodcutters * wood_per_woodcutter
    wood += wood_diff
-   dlog("Wood: +" + wood_diff)
-   food_diff = farmers * food_per_farmer - population_total * feed_per_person
+   dlogRes("Wood", wood_diff)
+   food_diff = farmers * food_per_farmer - population_total * hunger
    food += food_diff
    food = Math.round((food + Number.EPSILON) * 100) / 100
-   dlog("Food: " + (food_diff<0?"":"+") + food_diff)
+   dlogRes("Food", food_diff)
+   water_diff = -population_total * thirst
+   water += water_diff
+   water = Math.round((water + Number.EPSILON) * 100) / 100
+   dlogRes("Water", water_diff)
    for (var i = 0; i < (population_total / 2) && population_total < population_max; i++) {
       roll = Math.floor((Math.random() * 100) + 1)
       if (roll <= childbirth_chance) {
@@ -108,6 +130,11 @@ function tick10() {
    for (var i = 0; i < 10; i++) {
       tick(true)
    }
+}
+
+function dlogRes(name, val) {
+   msg = name + ": " + (val<0?"":"+") + val
+   dlog(msg)
 }
 
 function dlog(msg) {
