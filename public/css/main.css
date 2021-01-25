@@ -4,16 +4,29 @@ body {
 h2 {
    margin: 10px 0
 }
+.border {
+   border: 1px solid black;
+}
 .container {
-   /* border: 1px solid black; */
    padding: 10px;
 }
 .row {
    display: flex;
 }
-.col-5 {
+.col-3 {
+   flex: 25%;
+}
+.col-4 {
+   flex: 33%;
+}
+.col-6 {
    flex: 50%;
-   border: 1px solid black;
+}
+.col-8 {
+   flex: 66%;
+}
+.col-9 {
+   flex: 75%;
 }
 .icon {
    position: relative;

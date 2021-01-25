@@ -11,11 +11,25 @@
 
 <body onload="init()">
    <div class="row">
-      <div class="col-5">
+      <div class="col-3">
          <div class="container">
-            <h2>Population</h2>
-            <p><img class="icon" src="img/person.png" height="24">Free / Total: <span id="population_total"></span> / <span id="population_free"></span></p>
-            <p><img class="icon" src="img/housing.png" height="24">Max: <span id="population_max"></span></p>
+            <h2>Demographics</h2>
+            <div class="row">
+               <div class="col-3">
+                  <p><img class="icon" src="img/people.png" height="24">Total: <span id="population_total"></span></p>
+               </div>
+               <div class="col-9">
+                  <p><img class="icon" src="img/housing.png" height="24">Max: <span id="population_max"></span></p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-3">
+                  <p><img class="icon" src="img/baby.png" height="24">Babies: <span id=""></span></p>
+               </div>
+               <div class="col-9">
+                  <p><img class="icon" src="img/elder.png" height="24">Adults: <span id=""></span></p>
+               </div>
+            </div>
          </div>
          <div class="container">
             <h2>Structures</h2>
@@ -26,23 +40,48 @@
          </div>
          <div class="container">
             <h2>Resources</h2>
-            <p><img class="icon" src="img/food.png" height="24">Food: <span id="food"></span></p>
-            <p><img class="icon" src="img/wood.png" height="24">Wood: <span id="wood"></span></p>
+            <div class="row">
+               <div class="col-3">
+                  <p><img class="icon" src="img/food.png" height="24">Food: <span id="food"></span></p>
+               </div>
+               <div class="col-9">
+                  <p><img class="icon" src="img/water.png" height="24">Water: <span id="water"></span></p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-3">
+                  <p><img class="icon" src="img/wood.png" height="24">Wood: <span id="wood"></span></p>
+               </div>
+               <div class="col-9">
+                  <p><img class="icon" src="img/stone.png" height="24">Stone: <span id="stone"></span></p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-3">
+                  <p><img class="icon" src="img/idea.png" height="24">Ideas: <span id="ideas"></span></p>
+               </div>
+            </div>
          </div>
+      </div>
+      <div class="col-3">
          <div class="container">
             <h2>Workers</h2>
+            <p><img class="icon" src="img/person.png" height="24">Free: <span id="population_free"></span></p>
             <p><img class="icon" src="img/farmer.png" height="24"><label for="farmers">Farmers (+1): </label></p>
             <p><input type="number" id="farmers" name="farmers" min="0" max="0" value="0" onchange="adjustWorkers()"></p>
             <p><img class="icon" src="img/woodcutter.png" height="24"><label for="woodcutters">Woodcutters (+0.5): </label></p>
             <p><input type="number" id="woodcutters" name="woodcutters" min="0" max="0" value="0" onchange="adjustWorkers()"></p>
-         </div>
-         <div class="container">
-            <h2>Progress</h2>
-            <p><button type="button" name="button" onclick="tick()">Tick</button></p>
-            <p><button type="button" name="button" onclick="tick10()">Tick x10</button></p>
+            <p><img class="icon" src="img/miner.png" height="24"><label for="miners">Miners (+): </label></p>
+            <p><input type="number" id="miners" name="miners" min="0" max="0" value="0"></p>
+            <p><img class="icon" src="img/digger.png" height="24"><label for="diggers">Diggers (+): </label></p>
+            <p><input type="number" id="diggers" name="diggers" min="0" max="0" value="0"></p>
+            <p><img class="icon" src="img/hunter.png" height="24"><label for="hunters">Hunters (+): </label></p>
+            <p><input type="number" id="hunters" name="hunters" min="0" max="0" value="0"></p>
+            <p><img class="icon" src="img/thinker.png" height="24"><label for="thinkers">Thinkers (+): </label></p>
+            <p><input type="number" id="thinkers" name="thinkers" min="0" max="0" value="0"></p>
          </div>
       </div>
-      <div class="col-5">
+      <div class="col-6">
          <div class="container">
             <h2>Instructions</h2>
             <i>Version 0.1 patch 2</i>
@@ -58,6 +97,11 @@
                Havendo espaço suficiente, com o passar dos dias a população começará a crescer. <br>
                <i>Cada casal tem 5% de probabilidade de criar um filho durante a noite.</i>
             </p>
+         </div>
+         <div class="container">
+            <h2>Progress</h2>
+            <p><button type="button" name="button" onclick="tick()">Tick</button></p>
+            <p><button type="button" name="button" onclick="tick10()">Tick x10</button></p>
          </div>
          <div class="container">
             <h2>Log</h2>
